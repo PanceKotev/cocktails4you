@@ -1,6 +1,8 @@
 package com.eimt.lab.cocktails4you.userauthentication.domain.model;
 
 import com.eimt.lab.cocktails4you.sharedkernel.domain.base.AbstractEntity;
+import com.eimt.lab.cocktails4you.sharedkernel.domain.base.DomainObject;
+import com.eimt.lab.cocktails4you.sharedkernel.domain.base.DomainObjectId;
 import com.eimt.lab.cocktails4you.sharedkernel.domain.geo.Address;
 
 import javax.persistence.Embedded;
@@ -30,16 +32,8 @@ public class User extends AbstractEntity<UserId> {
     public User(){
 
     }
-    public User(UserId userId,String name, String password, String email, Address address, List<GradeId> gradedCocktails){
-        super(userId);
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.address = address;
-        this.gradedCocktails = gradedCocktails;
-    }
-
     public User(String name, String password, String email, Address address, List<GradeId> gradedCocktails){
+        super(DomainObjectId.randomId(UserId.class));
         this.name = name;
         this.password = password;
         this.email = email;
