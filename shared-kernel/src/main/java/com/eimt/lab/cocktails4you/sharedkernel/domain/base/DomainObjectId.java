@@ -18,6 +18,8 @@ public class DomainObjectId implements ValueObject {
         this.id = id;
     }
 
+
+
     @NonNull
     public static <ID extends DomainObjectId> ID randomId(@NonNull Class<ID> idClass) {
         Objects.requireNonNull(idClass, "idClass must not be null");
