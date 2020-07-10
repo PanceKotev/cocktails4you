@@ -9,20 +9,22 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-public class CatalogGrade extends AbstractEntity<CatalogGradeId> {
+public class Grade extends AbstractEntity<GradeId> {
 
     @Id
-    private CatalogGradeId id;
-    @Embedded
+    private GradeId id;
+
+    @ManyToOne
     private CocktailId cocktail_id;
+
     private int grade;
-    @Embedded
+    @ManyToOne
     private UserId user_id;
 
-    public CatalogGrade(){}
+    public Grade(){}
 
-    CatalogGrade(@NonNull CocktailId cocktailId, @NonNull UserId userid, @NonNull int grade){
-        super(DomainObjectId.randomId(CatalogGradeId.class));
+    public Grade(@NonNull CocktailId cocktailId, @NonNull UserId userid, @NonNull int grade){
+        super(DomainObjectId.randomId(GradeId.class));
         setCocktail_id(cocktailId);
         setUser_id(userid);
         if (grade < 1 || grade>5) {

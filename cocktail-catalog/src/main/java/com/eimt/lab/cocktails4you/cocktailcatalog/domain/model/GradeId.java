@@ -6,16 +6,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class CocktailItemId extends DomainObjectId {
+public class GradeId extends DomainObjectId {
 
-    public CocktailItemId() {
-        super(DomainObjectId.randomId(CocktailItemId.class).toString());
+    public GradeId() {
+        super("");
     }
 
 
     @JsonCreator
-    public CocktailItemId(String id) {
+    public GradeId(String id) {
         super(id);
     }
-
 }
